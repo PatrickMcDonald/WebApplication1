@@ -30,13 +30,13 @@
         </dd>
         @*
             Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-             
+
              See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-             
+
              Uncomment the following block after you have set up two-factor authentication
         *@
-        @*  
+        @*
             <dt>Phone Number:</dt>
             <dd>
                 @(Model.PhoneNumber ?? "None")
@@ -44,7 +44,7 @@
                 {
                     <br />
                     <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
@@ -64,7 +64,7 @@
             </p>
             @*@if (Model.TwoFactor)
                 {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <text>Enabled
@@ -74,7 +74,7 @@
                 }
                 else
                 {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <text>Disabled
